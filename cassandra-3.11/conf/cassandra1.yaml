@@ -191,13 +191,13 @@ partitioner: org.apache.cassandra.dht.Murmur3Partitioner
 # data_file_directories:
 #     - /var/lib/cassandra/data
 data_file_directories:
-    - /home/krystal/cas-test/cas-311/node0/data
+    - /home/krystal/cas-test/cas-311/node1/data
 
 # commit log.  when running on magnetic HDD, this should be a
 # separate spindle than the data directories.
 # If not set, the default directory is $CASSANDRA_HOME/data/commitlog.
 # commitlog_directory: /var/lib/cassandra/commitlog
-commitlog_directory: /home/krystal/cas-test/cas-311/node0/commitlog
+commitlog_directory: /home/krystal/cas-test/cas-311/node1/commitlog
 
 # Enable / disable CDC functionality on a per-node basis. This modifies the logic used
 # for write path allocation rejection (standard: never reject. cdc: reject Mutation
@@ -370,7 +370,7 @@ counter_cache_save_period: 7200
 # saved caches
 # If not set, the default directory is $CASSANDRA_HOME/data/saved_caches.
 # saved_caches_directory: /var/lib/cassandra/saved_caches
-saved_caches_directory: /home/krystal/cas-test/cas-311/node0/saved_caches
+saved_caches_directory: /home/krystal/cas-test/cas-311/node1/saved_caches
 
 # Number of seconds the server will wait for each cache (row, key, etc ...) to load while starting
 # the Cassandra process. Setting this to a negative value is equivalent to disabling all cache loading on startup
@@ -619,7 +619,7 @@ ssl_storage_port: 7001
 #
 # Setting listen_address to 0.0.0.0 is always wrong.
 #
-listen_address: 127.0.0.1
+listen_address: 127.0.0.2
 
 # Set listen_address OR listen_interface, not both. Interfaces must correspond
 # to a single address, IP aliasing is not supported.
@@ -696,7 +696,7 @@ start_rpc: true
 # set broadcast_rpc_address to a value other than 0.0.0.0.
 #
 # For security reasons, you should not expose this port to the internet.  Firewall it if needed.
-rpc_address: 127.0.0.1
+rpc_address: 127.0.0.2
 
 # Set rpc_address OR rpc_interface, not both. Interfaces must correspond
 # to a single address, IP aliasing is not supported.

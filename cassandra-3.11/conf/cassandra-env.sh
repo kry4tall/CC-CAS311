@@ -168,6 +168,8 @@ USING_G1=$?
 
 #MAX_HEAP_SIZE="4G"
 #HEAP_NEWSIZE="800M"
+MAX_HEAP_SIZE="2G"
+HEAP_NEWSIZE="400M"
 
 # Set this to control the amount of arenas per-thread in glibc
 #export MALLOC_ARENA_MAX=4
