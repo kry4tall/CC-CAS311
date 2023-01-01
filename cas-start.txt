@@ -1,0 +1,22 @@
+./cassandra -f -Dcassandra.config=file:///home/krystal/cas-test/cas-311/cassandra-cassandra-3.11/conf/cassandra.yaml -Dcassandra.jmx.local.port=7199 -Dcassandra.logDir=/home/krystal/cas-test/cas-311/node0/log -Dcassandra.storagedir=/home/krystal/cas-test/cas-311/node0/data -Dcassandra-foreground=no
+
+./cassandra -f -Dcassandra.config=file:///home/krystal/cas-test/cas-311/cassandra-cassandra-3.11/conf/cassandra1.yaml -Dcassandra.jmx.local.port=7200 -Dcassandra.logDir=/home/krystal/cas-test/cas-311/node1/log -Dcassandra.storagedir=/home/krystal/cas-test/cas-311/node1/data -Dcassandra-foreground=no
+
+./cassandra -f -Dcassandra.config=file:///home/krystal/cas-test/cas-311/cassandra-cassandra-3.11/conf/cassandra2.yaml -Dcassandra.jmx.local.port=7201 -Dcassandra.logDir=/home/krystal/cas-test/cas-311/node2/log -Dcassandra.storagedir=/home/krystal/cas-test/cas-311/node2/data -Dcassandra-foreground=no
+
+
+keyspace : test
+table : tests
+name    owner   value_1 value_2 value_3
+testing user_1  null    null    null
+
+UPDATE tests SET value_1 = 'A' WHERE name = 'testing' IF owner = 'user_1'
+UPDATE tests SET value_1 = 'B', value_2 = 'B' WHERE name = 'testing' IF  value_1 = 'A'
+UPDATE tests SET value_3 = 'C' WHERE name = 'testing' IF owner = 'user_1'
+
+
+
+"if statement" need paxos!
+no if no need!
+
+com.datastax.driver.core.exceptions.OperationTimedOutException
